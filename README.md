@@ -2,6 +2,8 @@
 
  A Tkinter Python BattleShip game
 
+ ![Screenshot](Screenshot%202023-08-05%20at%2011.27.19%20AM.png)
+
  ## Needed Software
 
  * First, make sure you have [Github Desktop](https://desktop.github.com/) installed.
