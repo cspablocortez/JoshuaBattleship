@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 import random
 
 # Constants
@@ -16,7 +17,7 @@ class BattleshipGame:
         self.place_ships()
 
     def create_board(self):
-        self.buttons = [[tk.Button(self.root, width=3, height=1, command=lambda x=x, y=y: self.check_hit(x, y))
+        self.buttons = [[tk.Button(self.root, width=1, height=1, command=lambda x=x, y=y: self.check_hit(x, y))
                          for y in range(BOARD_SIZE)] for x in range(BOARD_SIZE)]
 
         for x in range(BOARD_SIZE):
@@ -50,10 +51,11 @@ class BattleshipGame:
                     ship.remove((x, y))
                     if len(ship) == 0:
                         self.ships.remove(ship)
+                        tk.messagebox.showinfo("notice", "Ship Sunk")
                         if len(self.ships) == 0:
-                            self.end_game("You won!")
+                            #self.end_game("You won!")
                             # add messagebox
-                            tk.messagebox.Message(master = "you win", **"ok")
+                            tk.messagebox.showinfo("notice", "You win!")
                     break
         else:
             self.buttons[x][y].config(text="O", state=tk.DISABLED, disabledforeground="blue")
